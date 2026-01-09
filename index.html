@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Ester</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    overflow-x:hidden;
+}
+
+/* fundo animado */
+.noise{
+    position:fixed;
+    inset:0;
+    background:url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity:.08;
+    pointer-events:none;
+    z-index:1;
+}
+
+section{
+    min-height:100vh;
+    padding:60px 22px;
+    position:relative;
+    z-index:2;
+}
+
+/* título gigante */
+.hero h1{
+    font-family:'Anton', sans-serif;
+    font-size:56px;
+    letter-spacing:4px;
+    line-height:1;
+}
+
+.hero h1 span{
+    color:#ff003c;
+}
+
+/* foto */
+.photo{
+    width:100%;
+    max-width:420px;
+    margin:40px auto;
+    filter:grayscale(100%) contrast(120%);
+    animation: reveal 1.8s ease;
+}
+
+.photo img{
+    width:100%;
+    display:block;
+}
+
+@keyframes reveal{
+    from{opacity:0; transform:translateY(60px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* texto manifesto */
+.text{
+    font-size:15px;
+    line-height:1.9;
+    max-width:520px;
+    margin:auto;
+}
+
+.text strong{
+    color:#ff003c;
+}
+
+/* player */
+.player{
+    margin:70px auto;
+    text-align:center;
+}
+
+.play{
+    background:none;
+    border:2px solid #ff003c;
+    color:#ff003c;
+    padding:18px 34px;
+    font-size:18px;
+    cursor:pointer;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.play:hover{
+    background:#ff003c;
+    color:#000;
+}
+
+/* botão quiz */
+.quiz{
+    display:block;
+    margin:80px auto 20px;
+    text-align:center;
+    font-family:'Anton', sans-serif;
+    font-size:28px;
+    letter-spacing:3px;
+    color:#000;
+    background:#fff;
+    padding:24px 0;
+    width:100%;
+    max-width:420px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.quiz:hover{
+    background:#ff003c;
+    color:#000;
+}
+
+/* rodapé */
+footer{
+    text-align:center;
+    font-size:12px;
+    opacity:.5;
+    padding-bottom:40px;
+}
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<section class="hero">
+    <h1>NÃO É<br><span>SAUDADE</span></h1>
+
+    <div class="photo">
+        <img src="https://s11.aconvert.com/convert/p3r68-cdx67/shuwb-0ab4o.jpg">
+    </div>
+
+    <div class="text">
+        Não fiz isso pra impressionar.<br>
+        Fiz porque tem coisas que não ficam guardadas.<br><br>
+
+        Algumas presenças mudam a forma
+        como o silêncio soa.<br><br>
+
+        <strong>E você ainda ecoa aqui.</strong>
+    </div>
+
+    <div class="player">
+        <button class="play" onclick="toggle()">▶ TOCAR</button>
+        <audio id="music">
+            <source src="https://s51.aconvert.com/convert/p3r68-cdx67/fwgi0-7it77.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <a class="quiz" href="https://www.matequiz.com/pt/start.html?quiz=696074b375604e3f60ca5999">
+        CLIQUE
+    </a>
+
+    <footer>
+        eu te amo
+    </footer>
+</section>
+
+<script>
+const music = document.getElementById("music");
+const btn = document.querySelector(".play");
+
+function toggle(){
+    if(music.paused){
+        music.play();
+        btn.innerHTML="❚❚ PAUSAR";
+    }else{
+        music.pause();
+        btn.innerHTML="▶ TOCAR";
+    }
+}
+</script>
+
+</body>
+</html>
